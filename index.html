@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="./style.css">
+      <title>Nobles Components</title>
+      <link rel="icon" type="img/png" href="./images/ico.ico" />
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   </head>
+   <body>
+    <div id="app">
+      <nav>
+            <a href="#" class="logo">NCompunters</a>
+         <div class="link">
+            <input type="text" name="name" v-model="search" placeholder="vyhledat produkty"/>
+            <a class="navbar-link" href="#produkty">Produkty</a>
+            <a class="navbar-link" href="#">Shrnutí</a>
+            <a class="navbar-link" href="#">Kontakt</a>
+         </div>
+   </nav>
+   <div class="products" id="products-bar">
+       <component-product 
+       v-for="item in productList" 
+       v-bind:component="item | filterBy">
+      <!---item in productList | filterBy search in 'type'-->
+       </component-product>     
+ </div>
+ <div class="basket-panel" id="basket-bar">
+      <h1>Seznam vybraných produktů</h1>
+
+      <basket-product 
+      v-for="item in basket"
+      v-bind:component="item">
+      </basket-product>
+ </div>
+   <div class="bottom">
+      <div class="bottom-text">
+         © 2018 Nobles Components s.r.o. 
+         <a href="https://www.filipkalousek.cz">created by filip kalousek</a> 
+      </div>
+   </div>
+    </div>
+      <script src="./script.js"></script>
+      <script src="./scroller.js"></script>
+   </body>
+</html>
